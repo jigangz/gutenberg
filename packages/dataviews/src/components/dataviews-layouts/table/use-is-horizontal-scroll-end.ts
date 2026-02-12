@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import type { MutableRefObject } from 'react';
+import type { RefObject } from 'react';
 
 /**
  * WordPress dependencies
@@ -28,16 +28,16 @@ const isScrolledToEnd = ( element: Element ) => {
  *
  * See https://github.com/Automattic/wp-calypso/pull/103005#discussion_r2077567912.
  *
- * @param {Object}                                  params                    The parameters for the hook.
- * @param {MutableRefObject<HTMLDivElement | null>} params.scrollContainerRef The ref to the scroll container element.
- * @param {boolean}                                 [params.enabled=false]    Whether the hook is enabled.
+ * @param {Object}                           params                    The parameters for the hook.
+ * @param {RefObject<HTMLDivElement | null>} params.scrollContainerRef The ref to the scroll container element.
+ * @param {boolean}                          [params.enabled=false]    Whether the hook is enabled.
  * @return {boolean} - Returns true if the scroll container is scrolled to the end or false otherwise.
  */
 export function useIsHorizontalScrollEnd( {
 	scrollContainerRef,
 	enabled = false,
 }: {
-	scrollContainerRef: React.MutableRefObject< HTMLDivElement | null >;
+	scrollContainerRef: RefObject< HTMLDivElement | null >;
 	enabled?: boolean;
 } ): boolean {
 	const [ isHorizontalScrollEnd, setIsHorizontalScrollEnd ] =
