@@ -52,13 +52,13 @@
 		"sass-embedded": "^1.97.2"
 	},
 	"devDependencies": {
-		"@types/node": "^20.17.10"
+		"@types/node": "^20.19.0"
 	},
 	"peerDependencies": {
-		"@wordpress/boot": "^0.3.0",
-		"@wordpress/private-apis": "^1.0.0",
-		"@wordpress/route": "^0.2.0",
-		"@wordpress/theme": "^0.3.0"
+		"@wordpress/boot": "^0.8.0",
+		"@wordpress/private-apis": "^1.41.0",
+		"@wordpress/route": "^0.7.0",
+		"@wordpress/theme": "^0.8.0"
 	},
 	"peerDependenciesMeta": {
 		"@wordpress/boot": {
