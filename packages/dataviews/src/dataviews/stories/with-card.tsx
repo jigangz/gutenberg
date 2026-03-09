@@ -40,23 +40,25 @@ const WithCardComponent = () => {
 				<Card.Title>Header</Card.Title>
 			</Card.Header>
 			<Card.Content>
-				<DataViews
-					getItemId={ ( item ) => item.id.toString() }
-					paginationInfo={ paginationInfo }
-					data={ shownData }
-					view={ view }
-					fields={ fields }
-					onChangeView={ setView }
-					actions={ actions.filter(
-						( action ) => ! action.supportsBulk
-					) }
-					defaultLayouts={ {
-						[ LAYOUT_TABLE ]: {},
-						[ LAYOUT_GRID ]: {},
-						[ LAYOUT_LIST ]: {},
-						[ LAYOUT_ACTIVITY ]: {},
-					} }
-				/>
+				<Card.FullBleed>
+					<DataViews
+						getItemId={ ( item ) => item.id.toString() }
+						paginationInfo={ paginationInfo }
+						data={ shownData }
+						view={ view }
+						fields={ fields }
+						onChangeView={ setView }
+						actions={ actions.filter(
+							( action ) => ! action.supportsBulk
+						) }
+						defaultLayouts={ {
+							[ LAYOUT_TABLE ]: {},
+							[ LAYOUT_GRID ]: {},
+							[ LAYOUT_LIST ]: {},
+							[ LAYOUT_ACTIVITY ]: {},
+						} }
+					/>
+				</Card.FullBleed>
 			</Card.Content>
 		</Card.Root>
 	);
