@@ -27,6 +27,7 @@ import PluginDocumentSettingPanel from '../plugin-document-setting-panel';
 import PluginSidebar from '../plugin-sidebar';
 import PostSummary from './post-summary';
 import PostTaxonomiesPanel from '../post-taxonomies/panel';
+import RevisionFieldsDiffPanel from '../revision-fields-diff';
 import PostTransformPanel from '../post-transform-panel';
 import SidebarHeader from './header';
 import TemplateContentPanel from '../template-content-panel';
@@ -127,6 +128,7 @@ const SidebarContent = ( {
 							<PostSummary
 								onActionPerformed={ onActionPerformed }
 							/>
+							{ isRevisionsMode && <RevisionFieldsDiffPanel /> }
 							{ ! isRevisionsMode && (
 								<>
 									<PluginDocumentSettingPanel.Slot />
