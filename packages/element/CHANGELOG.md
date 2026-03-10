@@ -7,6 +7,11 @@
 - Updated dependencies to React 19.2.4 ([#61521](https://github.com/WordPress/gutenberg/pull/61521)).
 - Removed the `render`, `hydrate` and `unmountComponentAtNode` exports that have been deprecated since WordPress 6.2 after upgrade to React 18 ([#61521](https://github.com/WordPress/gutenberg/pull/61521)).
 
+### New Features
+
+- Added new `react` exports: `Activity`, `use`, `useActionState`, `useEffectEvent`, and `useOptimistic` ([#61521](https://github.com/WordPress/gutenberg/pull/61521)).
+- Added new `react-dom` exports: `useFormStatus`, `preconnect`, `prefetchDNS`, `preinit`, `preinitModule`, `preload`, and `preloadModule` ([#61521](https://github.com/WordPress/gutenberg/pull/61521)).
+
 ## 6.41.0 (2026-03-04)
 
 ## 6.40.0 (2026-02-18)
