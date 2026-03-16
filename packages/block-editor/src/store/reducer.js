@@ -2131,9 +2131,7 @@ export function blockEditingModes( state = new Map(), action ) {
 			return newState;
 		}
 		case 'RESET_BLOCKS': {
-			return state.has( '' )
-				? new Map().set( '', state.get( '' ) )
-				: state;
+			return new Map();
 		}
 	}
 	return state;

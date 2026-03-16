@@ -3610,17 +3610,12 @@ describe( 'state', () => {
 		it( 'should clear editing modes when blocks are reset', () => {
 			const state = new Map( [
 				[ '', 'disabled' ],
-				[ '14501cc2-90a6-4f52-aa36-ab6e896135d1', 'default' ],
+				[ '14501cc2-90a6-4f52-aa36-ab6e896135d1', 'contentOnly' ],
 			] );
 			const newState = blockEditingModes( state, {
 				type: 'RESET_BLOCKS',
 			} );
-			expect( newState ).toEqual(
-				new Map( [
-					// Root mode should be maintained.
-					[ '', 'disabled' ],
-				] )
-			);
+			expect( newState ).toEqual( new Map() );
 		} );
 	} );
 

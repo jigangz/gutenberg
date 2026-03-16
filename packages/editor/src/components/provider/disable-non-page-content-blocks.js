@@ -46,41 +46,6 @@ export default function DisableNonPageContentBlocks() {
 
 	const registry = useRegistry();
 
-	// The effects below are split so that changes to one group of blocks
-	// don't cause unnecessary set/unset cycles for the others. For example,
-	// the root block ('') editing mode only needs to be set once.
-	// Child blocks of templates and templateParts are also loaded separately,
-	// so these are kept in separate effects.
-	useEffect( () => {
-		const { setBlockEditingMode, unsetBlockEditingMode } =
-			registry.dispatch( blockEditorStore );
-
-		setBlockEditingMode( '', 'disabled' );
-
-		return () => {
-			unsetBlockEditingMode( '' );
-		};
-	}, [ registry ] );
-
-	useEffect( () => {
-		const { setBlockEditingMode, unsetBlockEditingMode } =
-			registry.dispatch( blockEditorStore );
-
-		registry.batch( () => {
-			for ( const clientId of templateParts ) {
-				setBlockEditingMode( clientId, 'contentOnly' );
-			}
-		} );
-
-		return () => {
-			registry.batch( () => {
-				for ( const clientId of templateParts ) {
-					unsetBlockEditingMode( clientId );
-				}
-			} );
-		};
-	}, [ templateParts, registry ] );
-
 	useEffect( () => {
 		const { setBlockEditingMode, unsetBlockEditingMode } =
 			registry.dispatch( blockEditorStore );
@@ -88,9 +53,16 @@ export default function DisableNonPageContentBlocks() {
 		const contentOnlySet = new Set( contentOnlyIds );
 
 		registry.batch( () => {
+			setBlockEditingMode( '', 'disabled' );
+
+			for ( const clientId of templateParts ) {
+				setBlockEditingMode( clientId, 'contentOnly' );
+			}
+
 			for ( const clientId of contentOnlyIds ) {
 				setBlockEditingMode( clientId, 'contentOnly' );
 			}
+
 			for ( const clientId of templatePartChildren ) {
 				if ( ! contentOnlySet.has( clientId ) ) {
 					setBlockEditingMode( clientId, 'disabled' );
@@ -100,6 +72,12 @@ export default function DisableNonPageContentBlocks() {
 
 		return () => {
 			registry.batch( () => {
+				unsetBlockEditingMode( '' );
+
+				for ( const clientId of templateParts ) {
+					unsetBlockEditingMode( clientId );
+				}
+
 				for ( const clientId of contentOnlyIds ) {
 					unsetBlockEditingMode( clientId );
 				}
@@ -110,7 +88,7 @@ export default function DisableNonPageContentBlocks() {
 				}
 			} );
 		};
-	}, [ contentOnlyIds, templatePartChildren, registry ] );
+	}, [ registry, templateParts, contentOnlyIds, templatePartChildren ] );
 
 	return null;
 }
