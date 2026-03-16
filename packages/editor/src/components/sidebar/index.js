@@ -29,6 +29,7 @@ import PostSummary from './post-summary';
 import PostTaxonomiesPanel from '../post-taxonomies/panel';
 import PostTransformPanel from '../post-transform-panel';
 import SidebarHeader from './header';
+import TemplateActionsPanel from '../template-actions-panel';
 import TemplateContentPanel from '../template-content-panel';
 import TemplatePartContentPanel from '../template-part-content-panel';
 import { MediaMetadataPanel } from '../media';
@@ -131,6 +132,7 @@ const SidebarContent = ( {
 								<>
 									<PluginDocumentSettingPanel.Slot />
 									<TemplateContentPanel />
+									<TemplateActionsPanel />
 									<TemplatePartContentPanel />
 									<PostTransformPanel />
 									<PostTaxonomiesPanel />
