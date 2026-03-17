@@ -1,0 +1,1 @@
+import{a as r}from"./iframe-BhSLVLxc.js";import{S as s,P as a}from"./index-DS-7DWHF.js";var m=r.jsx(s,{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24",children:r.jsx(a,{d:"m16.5 13.5-3.7 3.7V4h-1.5v13.2l-3.8-3.7-1 1 5.5 5.6 5.5-5.6z"})});export{m as a};

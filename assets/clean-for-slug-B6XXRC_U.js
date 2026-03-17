@@ -1,0 +1,1 @@
+import{r as e}from"./index-BQ8IZUot.js";function cleanForSlug(r){return r?e(r).replace(/(&nbsp;|&ndash;|&mdash;)/g,"-").replace(/[\s\./]+/g,"-").replace(/&\S+?;/g,"").replace(/[^\p{L}\p{N}_-]+/gu,"").toLowerCase().replace(/-+/g,"-").replace(/(^-+)|(-+$)/g,""):""}export{cleanForSlug as c};
